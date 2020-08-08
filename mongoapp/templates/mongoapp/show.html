@@ -1,0 +1,12 @@
+{% for poll in polls%}
+ID: {{poll.id}} <br>
+Name :  {{poll.real_name}} <br>
+TimeZone : {{poll.tz}} <br>
+Active Periods:<br>
+    {% for choice in poll.activity_periods %}
+    StartDate: {{choice.start_date}}
+    EndDate: {{choice.end_date}} <br>
+    {% endfor %}
+<a href="{% url "mongoapp:delete" poll.id %}">Delete</a>
+<hr>
+{% endfor %}
